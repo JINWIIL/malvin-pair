@@ -1,0 +1,6 @@
+services:
+  - type: worker
+    name: Finjohns-Xmd
+    env: docker
+    region: Frankfurt
+    plan: free
