@@ -1,6 +1,14 @@
 services:
-  - type: worker
-    name: Finjohns-Xmd
-    env: docker
-    region: Frankfurt
-    plan: free
+  - type: web
+    name: finjohns-pair
+    build:
+      command: npm install && npm run build
+    start:
+      command: node index.js
+    port: 3000
+    environment:
+      NODE_ENV: production
+    healthCheck:
+      path: /health
+      interval: 30000 # optional, defaults to 30000ms
+      timeout: 5000 # optional, defaults 
